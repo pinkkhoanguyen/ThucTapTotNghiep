@@ -1,0 +1,84 @@
+<%- include('./layout/_header.ejs') %>
+</head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial: ./layout/_navbar.html -->
+      <%- include('./layout/_navbar.ejs') %>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+          <!-- partial: ./layout/_sidebar.html -->
+          <%- include('./layout/_sidebar.ejs') %>
+            <!-- partial -->
+            <div class="main-panel">
+              <div class="content-wrapper">
+                <div class="container">
+                  <!-- TITLE PAGE -->
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="page-header pb-1 mb-4">
+                        <div class="col-9">
+                          <h4 class="page-title">Thêm Truyện Mới</h4>
+                        </div>
+                        <div class="col-3">
+                          <p class="mb-1">Tổng số 10 bảng ghi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END TITLE PAGE -->
+
+                  <!-- BODY PAGE -->
+                  <div class="row">
+                    <div class="col-lg-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Thông tin sách</h4>
+                          <p class="card-description">Thông tin cơ bản</p>
+                          <form class="forms-sample">
+                            <div class="form-group">
+                              <label for="exampleInputName1">Tên sách</label>
+                              <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputEmail3">Thể loại</label>
+                              <input type="text" class="form-control" id="exampleInputEmail3"
+                                placeholder="Kinh dị,hài hước,...">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword4">Tác giả</label>
+                              <input type="text" class="form-control" id="exampleInputPassword4"
+                                placeholder="Tên tác giả">
+                            </div>
+                            <div class="form-group">
+                              <label>Ảnh bìa upload</label>
+                              <input type="file" name="img[]" class="file-upload-default">
+                              <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" disabled=""
+                                  placeholder="Upload Image">
+                                <span class="input-group-append">
+                                  <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleTextarea1">Tóm tắt</label>
+                              <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success mr-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END BODY -->
+                </div>
+              </div>
+              <!-- content-wrapper ends -->
+              <!-- partial: ./layout/_footer.html -->
+
+              <%- include('./layout/_footer.ejs') %>
+                <!-- Include client js -->
+  </body>
+
+  </html>

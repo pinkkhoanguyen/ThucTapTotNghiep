@@ -1,0 +1,87 @@
+<%- include('./layout/_header.ejs') %>
+</head>
+    <body>
+        <div class="container-scroller">
+            <!-- partial: ./layout/_navbar.html -->
+            <%- include('./layout/_navbar.ejs') %>
+                <!-- partial -->
+                <div class="container-fluid page-body-wrapper">
+                    <!-- partial: ./layout/_sidebar.html -->
+                    <%- include('./layout/_sidebar.ejs') %>
+                        <!-- partial -->
+                        <div class="main-panel">
+                            <div class="content-wrapper">
+                                <div class="container">
+                                    <!-- TITLE PAGE -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="page-header pb-1 mb-4">
+                                                <div class="col-9">
+                                                    <h4 class="page-title"><%=page%>
+                                                    </h4>
+                                                </div>
+                                                <div class="col-3">
+                                                    <p class="mb-1">Tổng số 10 bảng ghi</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END TITLE PAGE -->
+
+                                    <!-- BODY PAGE -->
+                                    <div class="row">
+                                        <div class="col-lg-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title"> <%=page%>
+                                                    </h4>
+                                                    <!-- <p class="card-description" id="info-error"> Thông tin cơ bản </p> -->
+                                                    <form class="forms-the-loai" method="POST">
+
+                                                        <!--Ten The loai -->
+                                                        <div class="form-group">
+                                                            <label for='ten-the-loai'>Tên thể loại</label>
+                                                            <input type="text" class="form-control" placeholder="Nhập tên thể loại" name='ten-the-loai'
+                                                                id='ten-the-loai' 
+                                                                <% if(typeof data !== 'undefined'){%> 
+                                                                    value="<%=data.columns.tenTheLoai%>" 
+                                                                <%}%>>
+                                                            <small id="info-error-ten-the-loai"
+                                                                class="info-error"></small>
+
+                                                        </div>
+                                                        <!-- END TEN THE LOAI -->
+
+                                                        <!-- MIEU TA THE LOAI -->
+                                                        <div class="form-group">
+                                                            <label for='mt-the-loai'>Miêu tả thể loại</label>
+                                                            <textarea type="text" class="form-control" placeholder="Mô tả thể loại"
+                                                                name='mt-the-loai' id='mt-the-loai'><% if(typeof data !== 'undefined'){%><%=data.columns.moTa%><%}%></textarea>
+                                                                <small id="info-error-ten-the-loai"
+                                                                class="info-error"></small>
+
+                                                        </div>
+                                                        <!-- End mieu ta the loai -->
+                                                        <a href="<%=link%>"
+                                                            class="btn btn-success mr-2" id ="submit-create-the-loai">Submit</a>
+                                                        <a href="/admin/the-loai" class="btn btn-light">Cancel</a>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END BODY -->
+                                </div>
+                            </div>
+                            <!-- content-wrapper ends -->
+                            <!-- partial: ./layout/_footer.html -->
+                            <%- include('./layout/_footer.ejs') %>
+
+                                <!-- Include client js -->
+
+                                <script src="/admin/js/theloai.create.js"></script>
+                             
+                     
+
+    </body>
+    </html>

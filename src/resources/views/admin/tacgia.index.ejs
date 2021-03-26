@@ -1,0 +1,138 @@
+<%- include('./layout/_header.ejs') %>
+<style>
+     .modal-custom{
+         width: 42%;
+         background-color: white;
+         border: rgb(224, 224, 224) .3px solid;
+         box-shadow: rgb(212, 212, 212) 1px 1px;
+         padding: 1.5rem 2.2rem;
+         position: fixed;
+         left : 50%;
+         top: 50%;
+         transform:translate(-50%,-50%);
+     }
+     .modal-custom .title{
+         font-size: 1.3rem;
+         color: black;
+         font-family: -apple-system, Roboto,BlinkMacSystemFont, 'Segoe UI',  Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+         padding-bottom: 7px;
+         margin-bottom: 7px;
+     }
+
+     .modal-custom.hide{
+         display: none;
+     }
+
+</style>
+</head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial: ./layout/_navbar.html -->
+      <%- include('./layout/_navbar.ejs') %>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+          <!-- partial: ./layout/_sidebar.html -->
+          <%- include('./layout/_sidebar.ejs') %>
+            <!-- partial -->
+            <div class="main-panel">
+              <div class="content-wrapper">
+                <div class="container">
+                  <!-- TITLE PAGE -->
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="page-header pb-1 mb-4">
+                        <div class="col-9">
+                          <h4 class="page-title">Danh Sách Truyện</h4>
+                        </div>
+                        <div class="col-3">
+                          <p class="mb-1">Tổng số 10 bảng ghi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END TITLE PAGE -->
+
+                  <!-- BODY PAGE -->
+                  <div class="row">
+                    <div class="col-lg-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+
+                          <div class="row mb-4">
+                            <div class="col-md-8">
+                              <h4 class="card-title">Liệt kê tác giả</h4>
+                            </div>
+
+                            <div class="col-md-4 d-flex justify-content-end">
+                              <button type="button" class="btn btn-inverse-primary">Lọc</button>
+                              <button class="btn btn-inverse-success ml-1" id="them-tac-gia">Thêm</button>
+                              <button type="button" class="btn btn-inverse-danger ml-1">Xuất</button>
+                            </div>
+                          </div>
+                          <p class="card-description">Tác giả của truyện</p>
+                          <table class="table table-striped" id="table-tac-gia">
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>Tác giả</th>
+                                <th>Số lượng truyện</th>
+                                <th>Thao tác</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% for(let i =0;i<data.length;i++){ %>
+                              <tr>
+                                <td><%= data[i].id %></td>
+                                <td id='td-<%=data[i].id%>'><%= data[i].columns.tenTacGia%></td>
+                                <td><%= data[i].soLuong%></td>
+                                <td>
+                                  <label class="badge badge-danger" id="xoa-truyen">Xóa</label>
+                                  <a class="update-tac-gia"  id='update-<%=data[i].id%>'><label class="badge badge-success" id="sua-tac-gia">Sửa</label></a>
+                                  <!-- <label class="badge badge-primary" id="chi-tiet-truyen">Chi tiết</label> -->
+                                </td>
+                              </tr>
+                              <% }  %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FORM CREATAE TAC GIA -->
+
+                  <!-- END FORM -->
+                  <div class="modal-custom hide">
+                  <form id="create-tac-gia">
+                      <div class="title">
+                          Tạo mới tác giả  
+                      </div>
+                    <div class="form-group">
+                        <label for='ten-the-loai'>Tên tác giả</label>
+                        <input type="text" class="form-control" placeholder="Nhập tên tác giả" name='ten-tac-gia'
+                            id='ten-tac-gia'>
+                        <small id="info-error-ten-tac-gia"
+                            class="info-error"></small>
+                          
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-inverse-success ml-1" id="save-tac-gia">Thêm</button>
+                        <button type="button" class="btn btn btn-light ml-1" id="dong-form-tac-gia">Đóng</button>
+                    </div>
+                  </form>
+                </div>
+                  <!-- END BODY -->
+                </div>
+              </div>
+              <!-- content-wrapper ends -->
+              <!-- partial: ./layout/_footer.html -->
+              <%- include('./layout/_footer.ejs') %>
+
+                <!-- Include client js -->
+
+
+                <script src="/admin/js/tacgia.index.js"></script>
+  </body>
+
+  </html>

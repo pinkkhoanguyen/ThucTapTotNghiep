@@ -1,0 +1,89 @@
+<%- include('./layout/_header.ejs') %>
+</head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial: ./layout/_navbar.html -->
+      <%- include('./layout/_navbar.ejs') %>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+          <!-- partial: ./layout/_sidebar.html -->
+          <%- include('./layout/_sidebar.ejs') %>
+            <!-- partial -->
+            <div class="main-panel">
+              <div class="content-wrapper">
+                <div class="container">
+                  <!-- TITLE PAGE -->
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="page-header pb-1 mb-4">
+                        <div class="col-9">
+                          <h4 class="page-title">Danh Sách Truyện</h4>
+                        </div>
+                        <div class="col-3">
+                          <p class="mb-1">Tổng số 10 bảng ghi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END TITLE PAGE -->
+
+                  <!-- BODY PAGE -->
+                  <div class="row">
+                    <div class="col-lg-12 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-body">
+
+                          <div class="row mb-4">
+                            <div class="col-md-8">
+                              <h4 class="card-title">Liệt kê truyện</h4>
+                            </div>
+
+                            <div class="col-md-4 d-flex justify-content-end">
+                              <button type="button" class="btn btn-inverse-primary">Lọc</button>
+                              <a href="/admin/the-loai/create" class="btn btn-inverse-success ml-1" id="them-sach">Thêm</a>
+                              <button type="button" class="btn btn-inverse-danger ml-1">Xuất</button>
+                            </div>
+                          </div>
+                          <p class="card-description">Thể loại bao gồm : hài hước, kinh dị,... Một truyện có thể có nhiều thê loại</p>
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>Thể loại</th>
+                                <th>Mô tả</th>
+                                <th>Thao tác</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% for(let i =0;i<theLoais.length;i++){ %>
+                              <tr>
+                                <td><%= theLoais[i].id %></td>
+                                <td><%= theLoais[i].columns.tenTheLoai%></td>
+                                <td><%= theLoais[i].columns.moTa%></td>
+                                <td>
+                                  <label class="badge badge-danger" id="xoa-truyen">Xóa</label>
+                                  <a href="/admin/the-loai/edit/<%=theLoais[i].id%>"><label class="badge badge-success" id="sua-truyen">Sửa</label></a>
+                                  <!-- <label class="badge badge-primary" id="chi-tiet-truyen">Chi tiết</label> -->
+                                </td>
+                              </tr>
+                              <% }  %>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END BODY -->
+                </div>
+              </div>
+              <!-- content-wrapper ends -->
+              <!-- partial: ./layout/_footer.html -->
+              <%- include('./layout/_footer.ejs') %>
+
+                <!-- Include client js -->
+
+
+                
+  </body>
+
+  </html>
